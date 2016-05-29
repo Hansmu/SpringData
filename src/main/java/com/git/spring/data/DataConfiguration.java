@@ -38,6 +38,7 @@ public class DataConfiguration {
         jpaProperties.put("hibernate.hbm2ddl.auto", "create-drop"); //Create the tables once we start the application and drop them ocne we close the application.
         //Tell hibernate what vendor we're using so it can
         jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.HSQLDialect"); //Properly format our SQL:
+        jpaProperties.put("hibernate.hbm2ddl.import_files", "init.sql"); //Files that will be run after the DDL has been created.
 
         //Will build our entity manager factory.
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
