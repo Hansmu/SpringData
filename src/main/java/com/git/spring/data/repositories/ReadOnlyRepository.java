@@ -1,4 +1,4 @@
-package com.git.spring.data;
+package com.git.spring.data.repositories;
 
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.Repository;

@@ -1,4 +1,4 @@
-package com.git.spring.data;
+package com.git.spring.data.entities;
 
 import java.math.BigDecimal;
 import java.util.Date;

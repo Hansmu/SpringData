@@ -1,4 +1,4 @@
-package com.git.spring.data;
+package com.git.spring.data.application;
 
 import javafx.application.Platform;
 import org.springframework.context.annotation.Bean;

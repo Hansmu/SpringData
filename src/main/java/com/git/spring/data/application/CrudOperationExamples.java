@@ -1,5 +1,7 @@
-package com.git.spring.data;
+package com.git.spring.data.application;
 
+import com.git.spring.data.entities.Book;
+import com.git.spring.data.repositories.BookRepository;
 
 import java.util.ArrayList;
 import java.util.List;
