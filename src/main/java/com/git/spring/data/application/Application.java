@@ -3,6 +3,7 @@ package com.git.spring.data.application;
 
 import com.git.spring.data.entities.Book;
 import com.git.spring.data.repositories.BookRepository;
+import com.git.spring.data.repositories.CustomRepository;
 import com.git.spring.data.repositories.DerivedQueriesRepository;
 import com.git.spring.data.repositories.ReadOnlyBookRepository;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -20,8 +21,10 @@ public class Application {
             BookRepository repository = context.getBean(BookRepository.class);
             ReadOnlyBookRepository readOnlyRepository = context.getBean(ReadOnlyBookRepository.class);
             DerivedQueriesRepository derivedRepository = context.getBean(DerivedQueriesRepository.class);
+            CustomRepository customRepository = context.getBean(CustomRepository.class);
 
-            for(Book book: derivedRepository.findByTitleLike("%of%")) {
+
+            for(Book book: customRepository.queryForAllBooks()) {
                 System.out.println(book);
             }
 
