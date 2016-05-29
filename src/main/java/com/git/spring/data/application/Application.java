@@ -24,7 +24,7 @@ public class Application {
             CustomRepository customRepository = context.getBean(CustomRepository.class);
 
 
-            for(Book book: customRepository.queryForAllBooks()) {
+            for(Book book: customRepository.queryAll()) {
                 System.out.println(book);
             }
 

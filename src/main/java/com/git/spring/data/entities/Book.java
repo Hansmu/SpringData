@@ -3,15 +3,17 @@ package com.git.spring.data.entities;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "BOOK")
+//Named queries - Statically defined queries with a pre-defined, unchangable query string.
+//Defined on the entity.
+@NamedQueries({ //Name - lead with the entity name, then use dot, followed by the repository method name it should correspond with.
+        @NamedQuery(name="Book.queryAll", query="SELECT b FROM Book b"),
+        @NamedQuery(name="Book.queryForAllWithGreaterPageCount", query="SELECT b FROM Book b WHERE b.pageCount > ?1"),
+        @NamedQuery(name="Book.queryAllWithTitle", query="SELECT b FROM Book b WHERE b.title= :title")
+}) /** Call for these named queries as you would call for a regular one. Off of the repository. **/
 public class Book {
 
     @Id

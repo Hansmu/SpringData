@@ -22,6 +22,12 @@ public interface CustomRepository extends JpaRepository<Book, Long> {
     List<Book> queryForAllBooksWherePageCountIsLargerThan(int pageCount);
 
     @Query("SELECT b FROM Book b WHERE b.title= :title")
-    List<Book> query(@Param("title") String title); //Specify the named parameter in the @Param to bind it to the passed in value.
+    List<Book> queryByTitle(@Param("title") String title); //Specify the named parameter in the @Param to bind it to the passed in value.
+
+    /** NamedQuery. Bound in Book entity. **/
+    /** BETTER TO USE @QUERY THAN @NAMEDQUERY **/
+    List<Book> queryAll();
+    List<Book> queryForAllWithGreaterPageCount();
+    List<Book> queryAllWithTitle();
 
 }
