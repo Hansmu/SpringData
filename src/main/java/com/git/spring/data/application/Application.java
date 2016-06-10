@@ -7,6 +7,7 @@ import com.git.spring.data.repositories.CustomRepository;
 import com.git.spring.data.repositories.DerivedQueriesRepository;
 import com.git.spring.data.repositories.ReadOnlyBookRepository;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.data.domain.Sort;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -27,6 +28,13 @@ public class Application {
             for(Book book: customRepository.queryAll()) {
                 System.out.println(book);
             }
+            //In order to sort your results on your own.
+            //If we provide the sort, we can direct sorting.
+            //Create a new sort class and provide the field name. First argument in overloaded construct to specify sort.
+            //Can provide more than one field to sort by.
+            //Provide with .and() to do sorting in another direction for another field. Used as a secondary sort.
+            repository.findAll(new Sort(Sort.Direction.DESC, "author.lastName", "pageCount") //By default in ascending order.
+                    .and(new Sort(Sort.Direction.ASC, "pageCount"))); //Can provide the Sort argument to your repository methods as well.
 
             CrudOperationExamples.showFoundSingleBookAndAllBooks(repository, 1L);
         }
